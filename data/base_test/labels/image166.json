@@ -1,0 +1,100 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          1062.0,
+          951.7142857142858
+        ],
+        [
+          1669.142857142857,
+          1558.857142857143
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          1483.4285714285713,
+          1537.4285714285713
+        ],
+        [
+          1983.4285714285713,
+          2087.4285714285716
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1811.9999999999998,
+          2208.8571428571427
+        ],
+        [
+          2326.2857142857138,
+          2787.428571428571
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_cent",
+      "points": [
+        [
+          1140.5714285714287,
+          2473.142857142857
+        ],
+        [
+          1526.2857142857144,
+          2908.8571428571427
+        ]
+      ],
+      "group_id": null,
+      "description": null,
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_cent",
+      "points": [
+        [
+          716.1666666666665,
+          1524.3333333333333
+        ],
+        [
+          1216.1666666666665,
+          2011.8333333333333
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image166.png",
+  "imageData": null,
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}

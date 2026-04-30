@@ -1,0 +1,46 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          134.45652173913044,
+          243.2453416149068
+        ],
+        [
+          248.74223602484466,
+          355.667701863354
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          167.3757763975155,
+          142.0031055900621
+        ],
+        [
+          263.027950310559,
+          220.88509316770185
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image105.png",
+  "imageData": null,
+  "imageHeight": 525,
+  "imageWidth": 395
+}

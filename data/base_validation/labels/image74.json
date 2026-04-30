@@ -1,0 +1,154 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          2074.5000000000005,
+          2131.0
+        ],
+        [
+          2604.5000000000005,
+          2676.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          929.5000000000005,
+          2386.0
+        ],
+        [
+          1459.5000000000005,
+          2906.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1739.5000000000005,
+          2501.0
+        ],
+        [
+          2209.5000000000005,
+          2951.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          1244.5000000000005,
+          1641.0000000000002
+        ],
+        [
+          1734.5000000000005,
+          2071.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          1814.5000000000005,
+          1646.0000000000002
+        ],
+        [
+          2249.5000000000005,
+          2066.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_cent",
+      "points": [
+        [
+          979.5000000000005,
+          1981.0000000000002
+        ],
+        [
+          1304.5000000000005,
+          2376.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          1234.5000000000005,
+          1666.0000000000002
+        ],
+        [
+          1754.5000000000005,
+          2101.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_cent",
+      "points": [
+        [
+          1524.5000000000005,
+          2136.0
+        ],
+        [
+          1884.5000000000005,
+          2481.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image74.png",
+  "imageData": null,
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}

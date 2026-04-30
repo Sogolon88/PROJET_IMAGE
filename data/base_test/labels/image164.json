@@ -1,0 +1,28 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1_cent",
+      "points": [
+        [
+          323.3076923076923,
+          382.92307692307696
+        ],
+        [
+          767.5384615384615,
+          807.9230769230769
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image164.png",
+  "imageData": null,
+  "imageHeight": 1112,
+  "imageWidth": 1112
+}

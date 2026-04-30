@@ -13,7 +13,8 @@ def load_images(dossier="data/images"):
 def load_labels(fichier="data/image1.json"):
     with open(fichier, "r") as f:
         labels = json.load(f)
-        nb_pieces = sum(1 for s in labels["shapes"] if s["label"] in ["1_cent", "2_cents", "5_cents", "10_cents", "20_cents", "50_cents", "1_euro", "2_euro"])
+        LABELS_PIECES = ["1_cent", "2_cent", "5_cent", "10_cent", "20_cent", "50_cent", "1_euro", "2_euro"]
+        nb_pieces = sum(1 for s in labels["shapes"] if s["label"] in LABELS_PIECES)
     return nb_pieces
 
 def load_all_labels(dossier):

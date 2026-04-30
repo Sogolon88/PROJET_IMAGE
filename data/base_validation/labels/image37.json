@@ -1,0 +1,208 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          1107.1428571428573,
+          3057.1428571428573
+        ],
+        [
+          1540.4761904761908,
+          3585.714285714286
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          1592.8571428571431,
+          2514.285714285714
+        ],
+        [
+          2040.4761904761908,
+          2966.666666666667
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          1173.8095238095239,
+          2419.0476190476193
+        ],
+        [
+          1588.095238095238,
+          2828.571428571429
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          1569.0476190476193,
+          1071.4285714285716
+        ],
+        [
+          1988.0952380952385,
+          1480.952380952381
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1197.6190476190477,
+          1442.857142857143
+        ],
+        [
+          1578.571428571429,
+          1842.857142857143
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          1878.5714285714284,
+          1580.952380952381
+        ],
+        [
+          2311.9047619047624,
+          1966.6666666666667
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          1492.8571428571431,
+          1838.0952380952383
+        ],
+        [
+          1850.0,
+          2157.1428571428573
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          950.0,
+          2033.3333333333335
+        ],
+        [
+          1321.4285714285716,
+          2366.666666666667
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          2507.142857142857,
+          1690.4761904761906
+        ],
+        [
+          2878.5714285714284,
+          2061.904761904762
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          2602.3809523809523,
+          2057.1428571428573
+        ],
+        [
+          2940.476190476191,
+          2442.857142857143
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          2564.2857142857147,
+          2457.1428571428573
+        ],
+        [
+          2945.2380952380954,
+          2842.857142857143
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image37.png",
+  "imageData": null,
+  "imageHeight": 4000,
+  "imageWidth": 3000
+}

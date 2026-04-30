@@ -1,0 +1,46 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          705.8048780487804,
+          709.3658536585366
+        ],
+        [
+          1227.7560975609756,
+          1253.2682926829268
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          215.56097560975604,
+          799.609756097561
+        ],
+        [
+          635.0731707317073,
+          1187.4146341463415
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image197.png",
+  "imageData": null,
+  "imageHeight": 2048,
+  "imageWidth": 1536
+}

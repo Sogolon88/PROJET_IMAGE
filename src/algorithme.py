@@ -93,9 +93,52 @@ def hough_transform(image, dp=1, minDist=20, param1=150, param2=30, minRadius=20
     )
     
     if circles is None:
-        print("Aucune pièce détectée")
         return []
     
     circles = np.uint16(np.around(circles))
     
     return circles
+
+def scorer_cercle(img_gray, cx, cy, r):
+    """Score de crédibilité d'un cercle : plus il est élevé, plus c'est probablement une pièce"""
+    
+    # 1. Gradient moyen sur le bord (fort = bord net = pièce probable)
+    masque_bord = np.zeros(img_gray.shape, dtype=np.uint8)
+    cv2.circle(masque_bord, (cx, cy), r, 255, 3)
+    sobelx = cv2.Sobel(img_gray, cv2.CV_64F, 1, 0, ksize=3)
+    sobely = cv2.Sobel(img_gray, cv2.CV_64F, 0, 1, ksize=3)
+    gradient = np.sqrt(sobelx**2 + sobely**2)
+    gradient_bord = gradient[masque_bord > 0].mean()
+
+    # 2. Uniformité intérieure (une pièce a un intérieur relativement uniforme)
+    masque_interieur = np.zeros(img_gray.shape, dtype=np.uint8)
+    cv2.circle(masque_interieur, (cx, cy), int(r * 0.7), 255, -1)  # rempli
+    pixels_interieur = img_gray[masque_interieur > 0]
+    uniformite = 1.0 / (pixels_interieur.std() + 1)  # plus std est faible, plus c'est uniforme
+
+    score = gradient_bord * uniformite
+    return score
+
+def nms_circles(circles, img_gray, overlap_thresh=0.5):
+    if len(circles) == 0:
+        return []
+    
+    # Scorer chaque cercle
+    cercles_scores = [(cx, cy, r, scorer_cercle(img_gray, cx, cy, r)) 
+                      for (cx, cy, r) in circles]
+    
+    # Trier par score décroissant (le plus crédible en premier)
+    cercles_scores = sorted(cercles_scores, key=lambda c: c[3], reverse=True)
+    
+    final = []
+    for (cx, cy, r, score) in cercles_scores:
+        trop_proche = False
+        for (cx2, cy2, r2, _) in final:
+            dist = np.sqrt((int(cx) - int(cx2))**2 + (int(cy) - int(cy2))**2)
+            if dist < (r + r2) * overlap_thresh:
+                trop_proche = True
+                break
+        if not trop_proche:
+            final.append((cx, cy, r, score))
+    
+    return [(cx, cy, r) for (cx, cy, r, _) in final]

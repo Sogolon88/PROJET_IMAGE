@@ -1,0 +1,118 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          437.512195121951,
+          1294.7317073170732
+        ],
+        [
+          754.5853658536585,
+          1619.1219512195123
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          891.1707317073169,
+          1345.9512195121952
+        ],
+        [
+          1174.0975609756094,
+          1638.6341463414635
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          822.8780487804877,
+          570.3414634146342
+        ],
+        [
+          1098.4878048780486,
+          853.2682926829268
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          483.85365853658527,
+          797.170731707317
+        ],
+        [
+          761.9024390243901,
+          1050.829268292683
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          871.6585365853657,
+          994.7317073170732
+        ],
+        [
+          1120.4390243902437,
+          1238.6341463414635
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          169.21951219512175,
+          975.219512195122
+        ],
+        [
+          422.8780487804877,
+          1226.439024390244
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image81.png",
+  "imageData": null,
+  "imageHeight": 2048,
+  "imageWidth": 1536
+}

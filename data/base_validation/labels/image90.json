@@ -1,0 +1,118 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          1945.2380952380954,
+          1161.904761904762
+        ],
+        [
+          2450.0,
+          1709.5238095238096
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          1616.666666666667,
+          1842.857142857143
+        ],
+        [
+          2121.4285714285716,
+          2347.6190476190477
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          983.3333333333335,
+          2385.714285714286
+        ],
+        [
+          1473.8095238095239,
+          2847.6190476190477
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1492.8571428571431,
+          2423.809523809524
+        ],
+        [
+          1907.1428571428569,
+          2857.1428571428573
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1559.5238095238096,
+          1014.2857142857143
+        ],
+        [
+          2011.9047619047624,
+          1490.4761904761906
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "20_cent",
+      "points": [
+        [
+          1440.4761904761908,
+          1423.8095238095239
+        ],
+        [
+          1854.7619047619046,
+          1880.9523809523812
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image90.png",
+  "imageData": null,
+  "imageHeight": 4000,
+  "imageWidth": 3000
+}

@@ -1,0 +1,46 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "5_cent",
+      "points": [
+        [
+          206.81300813008136,
+          242.31300813008133
+        ],
+        [
+          320.6341463414634,
+          361.01219512195127
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "5_cent",
+      "points": [
+        [
+          194.6178861788618,
+          414.6707317073171
+        ],
+        [
+          304.3739837398374,
+          530.9308943089432
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image109.png",
+  "imageData": null,
+  "imageHeight": 683,
+  "imageWidth": 512
+}

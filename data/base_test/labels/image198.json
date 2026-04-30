@@ -1,0 +1,82 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          671.6585365853657,
+          465.4634146341464
+        ],
+        [
+          1154.5853658536582,
+          945.9512195121952
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          788.731707317073,
+          1160.5853658536587
+        ],
+        [
+          1266.780487804878,
+          1602.0487804878048
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "50_cent",
+      "points": [
+        [
+          222.8780487804877,
+          984.9756097560976
+        ],
+        [
+          657.0243902439022,
+          1406.9268292682927
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          249.70731707317054,
+          499.609756097561
+        ],
+        [
+          581.4146341463413,
+          863.0243902439024
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image198.png",
+  "imageData": null,
+  "imageHeight": 2048,
+  "imageWidth": 1536
+}

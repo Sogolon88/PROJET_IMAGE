@@ -1,0 +1,28 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          1439.5000000000005,
+          1616.0000000000002
+        ],
+        [
+          2274.5000000000005,
+          2381.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image50.png",
+  "imageData": null,
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}

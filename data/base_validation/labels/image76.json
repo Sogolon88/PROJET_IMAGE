@@ -1,0 +1,118 @@
+{
+  "version": "6.1.3",
+  "flags": {},
+  "shapes": [
+    {
+      "label": "1_euro",
+      "points": [
+        [
+          839.5000000000005,
+          1331.0000000000002
+        ],
+        [
+          1359.5000000000005,
+          1821.0000000000002
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          2084.5000000000005,
+          2376.0
+        ],
+        [
+          2689.5000000000005,
+          2951.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_euro",
+      "points": [
+        [
+          839.5000000000005,
+          2736.0
+        ],
+        [
+          1404.5000000000005,
+          3301.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "10_cent",
+      "points": [
+        [
+          1539.5000000000005,
+          2071.0
+        ],
+        [
+          1954.5000000000005,
+          2496.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "1_cent",
+      "points": [
+        [
+          1974.5000000000005,
+          1906.0000000000002
+        ],
+        [
+          2379.5000000000005,
+          2266.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    },
+    {
+      "label": "2_cent",
+      "points": [
+        [
+          1089.5000000000005,
+          2286.0
+        ],
+        [
+          1504.5000000000005,
+          2701.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "rectangle",
+      "flags": {},
+      "mask": null
+    }
+  ],
+  "imagePath": "image76.png",
+  "imageData": null,
+  "imageHeight": 4032,
+  "imageWidth": 3024
+}
