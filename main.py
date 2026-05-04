@@ -5,8 +5,8 @@ from src.utiles import load_images, load_all_labels
 from src.evaluation import evaluate_regression
 from matplotlib import pyplot as plt
 
-if __name__ == "__main__":
-    images = load_images("data/base_validation/images")
+def run_aldo(image_path:str="data/base_validation/images"):
+    images = load_images(image_path)
     MAX_SIDE = 800
     faux_negatifs = 0
     predictions = {}
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         s = hsv[:, :, 1]
         combined = hsv[:, :, 2] # cv2.addWeighted(v, 1, s, 0., 0)
         
-        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        clahe = cv2.createCLAHE(clipLimit=2.5, tileGridSize=(8, 8))
         combined = clahe.apply(combined)
 
         # Flou gaussien
@@ -44,14 +44,14 @@ if __name__ == "__main__":
             param2=60,            
             minRadius=25,         
             minDist=30,           
-            maxRadius=150        
+            maxRadius=140        
         )
 
         circles_list = []
         if len(circles) != 0:
             circles_list = [(c[0], c[1], c[2]) for c in circles[0]]
     
-        circles_filtres = nms_circles(circles_list, combined, overlap_thresh=0.6)
+        circles_filtres = nms_circles(circles_list, combined, overlap_thresh=0.8, img_bgr=img)
 
         print(f"******** Image {i + 1} ********")
         if len(circles_filtres) == 0:
@@ -67,12 +67,21 @@ if __name__ == "__main__":
                 cv2.circle(img_result, (cx, cy), r, (0, 255, 0), 2)
                 cv2.circle(img_result, (cx, cy), 2, (0, 0, 255), 3)
             print(f"Faux négatifs cumulés : {faux_negatifs}\n")
-
+            """
             plt.imshow(cv2.cvtColor(img_result, cv2.COLOR_BGR2RGB))
             plt.title(f"Image {i+1} — {len(circles_filtres)} pièce(s)")
             plt.axis('off')
-            plt.show()
+            plt.show()"""
 
     # Evaluation une seule fois à la fin
     print("\n")
-    evaluate_regression(predictions, load_all_labels("data/base_validation/labels"))
+    stats = evaluate_regression(predictions, load_all_labels("data/base_validation/labels"))
+
+    return {
+        "predictions": predictions,
+        "stats":       stats,
+    }
+
+if __name__ == "__main__":
+    resultats = run_aldo()
+

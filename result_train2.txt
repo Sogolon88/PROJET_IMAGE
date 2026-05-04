@@ -1,0 +1,26 @@
+[1/88] Nouveau meilleur -> F1=0.961, MSE=28.61, score=-1.900
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 0.5, 'overlap_thresh': 0.3}
+[2/88] Nouveau meilleur -> F1=0.961, MSE=28.11, score=-1.850
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 0.5, 'overlap_thresh': 0.35}
+[3/88] Nouveau meilleur -> F1=0.961, MSE=27.70, score=-1.809
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 0.5, 'overlap_thresh': 0.4}
+[4/88] Nouveau meilleur -> F1=0.961, MSE=27.49, score=-1.788
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 0.5, 'overlap_thresh': 0.45}
+[6/88] Nouveau meilleur -> F1=0.961, MSE=27.35, score=-1.774
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 0.5, 'overlap_thresh': 0.55}
+[18/88] Nouveau meilleur -> F1=0.974, MSE=26.90, score=-1.716
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 1.0, 'overlap_thresh': 0.6}
+[19/88] Nouveau meilleur -> F1=0.974, MSE=26.25, score=-1.651
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 1.0, 'overlap_thresh': 0.65}
+[20/88] Nouveau meilleur -> F1=0.974, MSE=26.06, score=-1.632
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 1.0, 'overlap_thresh': 0.7}
+[33/88] Nouveau meilleur -> F1=0.981, MSE=25.90, score=-1.609
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 1.5, 'overlap_thresh': 0.8}
+[54/88] Nouveau meilleur -> F1=0.994, MSE=25.74, score=-1.580
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 2.5, 'overlap_thresh': 0.75}
+[55/88] Nouveau meilleur -> F1=0.994, MSE=25.41, score=-1.548
+  Params: {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 2.5, 'overlap_thresh': 0.8}
+
+===== RÉSULTAT FINAL =====
+Meilleur score : -1.548
+Meilleurs paramètres : {'kernel_size': 11, 'sigma': 2.5, 'poids_v': 1.0, 'dp': 1, 'param1': 50, 'param2': 60, 'minRadius': 25, 'maxRadius': 150, 'minDist': 30, 'clip_limit': 2.5, 'overlap_thresh': 0.8}

@@ -99,9 +99,46 @@ def hough_transform(image, dp=1, minDist=20, param1=150, param2=30, minRadius=20
     
     return circles
 
+def est_couleur_piece(img_bgr, cx, cy, r, seuil_ratio=0.45):
+    """
+    Filtre couleur combinant deux approches :
+    1. Moyenne HSV : rejette les cercles trop sombres (clavier noir, fond sombre)
+    2. Ratio pixel : fraction minimale de pixels à couleur métallique
+    Un cercle est validé si les deux conditions sont remplies.
+    """
+    masque = np.zeros(img_bgr.shape[:2], dtype=np.uint8)
+    cv2.circle(masque, (cx, cy), int(r * 0.75), 255, -1)
+
+    hsv = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2HSV)
+    pixels = hsv[masque > 0]
+    if len(pixels) == 0:
+        return False
+
+    h = pixels[:, 0].astype(float)
+    s = pixels[:, 1].astype(float)
+    v = pixels[:, 2].astype(float)
+
+    # ── Approche 1 : moyenne globale ──
+    # V moyen des pièces >= 62 même pour les plus sombres (1_cent)
+    # Les touches noires du clavier ont V moyen < 50
+    if v.mean() < 55:
+        return False
+
+    # ── Approche 2 : ratio pixels métalliques ──
+    # Plages calibrées sur les stats réelles du dataset
+    doree    = (h >= 5)  & (h <= 35) & (s >= 40) & (v >= 50)
+    argentee = (s < 80)  & (v >= 100)
+    bimetall = (h >= 5)  & (h <= 90) & (s >= 20) & (v >= 100)
+
+    metallique = doree | argentee | bimetall
+    ratio = metallique.sum() / len(pixels)
+
+    return ratio >= seuil_ratio
+
+
 def scorer_cercle(img_gray, cx, cy, r):
     """Score de crédibilité d'un cercle : plus il est élevé, plus c'est probablement une pièce"""
-    
+
     # 1. Gradient moyen sur le bord (fort = bord net = pièce probable)
     masque_bord = np.zeros(img_gray.shape, dtype=np.uint8)
     cv2.circle(masque_bord, (cx, cy), r, 255, 3)
@@ -112,24 +149,33 @@ def scorer_cercle(img_gray, cx, cy, r):
 
     # 2. Uniformité intérieure (une pièce a un intérieur relativement uniforme)
     masque_interieur = np.zeros(img_gray.shape, dtype=np.uint8)
-    cv2.circle(masque_interieur, (cx, cy), int(r * 0.7), 255, -1)  # rempli
+    cv2.circle(masque_interieur, (cx, cy), int(r * 0.7), 255, -1)
     pixels_interieur = img_gray[masque_interieur > 0]
-    uniformite = 1.0 / (pixels_interieur.std() + 1)  # plus std est faible, plus c'est uniforme
+    uniformite = 1.0 / (pixels_interieur.std() + 1)
 
     score = gradient_bord * uniformite
     return score
 
-def nms_circles(circles, img_gray, overlap_thresh=0.5):
+def nms_circles(circles, img_gray, overlap_thresh=0.5, img_bgr=None):
     if len(circles) == 0:
         return []
-    
+
+    # Filtre couleur HSV : rejette les cercles qui ne ressemblent pas à une pièce
+    if img_bgr is not None:
+        circles = [
+            (cx, cy, r) for (cx, cy, r) in circles
+            if est_couleur_piece(img_bgr, cx, cy, r)
+        ]
+    if len(circles) == 0:
+        return []
+
     # Scorer chaque cercle
-    cercles_scores = [(cx, cy, r, scorer_cercle(img_gray, cx, cy, r)) 
+    cercles_scores = [(cx, cy, r, scorer_cercle(img_gray, cx, cy, r))
                       for (cx, cy, r) in circles]
-    
+
     # Trier par score décroissant (le plus crédible en premier)
     cercles_scores = sorted(cercles_scores, key=lambda c: c[3], reverse=True)
-    
+
     final = []
     for (cx, cy, r, score) in cercles_scores:
         trop_proche = False

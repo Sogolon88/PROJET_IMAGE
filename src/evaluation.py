@@ -37,6 +37,16 @@ def evaluate_regression(predictions, labels):
     total_avec_pieces = vrai_positifs + faux_negatifs
     rappel = vrai_positifs / total_avec_pieces if total_avec_pieces > 0 else 0
 
+    stats = {
+        "faux_negatifs":  faux_negatifs,
+        "faux_positifs":  faux_positifs,
+        "vrai_positifs":  vrai_positifs,
+        "vrai_negatifs":  vrai_negatifs,
+        "rappel":         rappel,
+        "mse":            mse,
+        "taux_succes":    taux_succes,
+    }
+
     print("***************** statistiques d'évaluation de la regression*****************")
     print(f"Faux négatifs : {faux_negatifs}")
     print(f"Faux positifs : {faux_positifs}")
@@ -45,6 +55,8 @@ def evaluate_regression(predictions, labels):
     print(f"Rappel (détection) : {rappel * 100:.2f}%")
     print(f"Mesure de taux d'erreur MSE pour la regression : {mse:.2f}")
     print(f"Taux de succès : {taux_succes*100:.2f}%")
+
+    return stats
 
 
 

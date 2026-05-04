@@ -13,63 +13,85 @@ Ce projet permet de détecter, identifier et compter le nombre de pièces de mon
 ## Structure du projet
 
 ```
-coin-recognition/
+projet_Image/
 ├── src/
-│   ├── detection.py       # Détection et segmentation des pièces
-│   ├── comptage.py        # Classification par caractéristiques
-│   └── utils.py           # Fonctions utilitaires
+│   ├── algorithme.py      # Pipeline de traitement : HSV, CLAHE, Hough, NMS, filtres couleur
+│   ├── evaluation.py      # Métriques d'évaluation (régression)
+│   └── utiles.py          # Chargement des images et des labels
 ├── data/
-│   ├── base_valid/        
-|   |   ├──image_raw/      # images de validations
-|   |   ├──labels/         # resultats annotés
-|   |
-|   ├──base_test/          # images de validations
-|   └── /image_raw/        # images de test
-|   └── /labels/           # resultats annotés
-├── requirements.txt
+│   ├── base_validation/
+│   │   ├── images/        # 150 images de validation (image1.png … image150.png)
+│   │   └── labels/        # Annotations JSON (vérité terrain)
+│   ├── base_test/
+│   │   ├── images/        # 50 images de test (image151.png … image200.png)
+│   │   └── labels/        # Annotations JSON (vérité terrain)
+│   └── images/            # Images brutes diverses
+├── main.py                # Point d'entrée principal — exécute la pipeline sur base_validation
+├── train.py               # Script d'entraînement / calibration des paramètres
+├── interface.py           # Interface graphique de visualisation
+├── result.txt             # Résultats de la dernière exécution
+├── output.log             # Logs de sortie
 └── README.md
 ```
 
-## Installation:
+## Installation
 
-Cloner le dépôt : `git clone https://github.com/Sogolon88/PROJET_IMAGE.git`
+Cloner le dépôt :
+
+```bash
+git clone https://github.com/Sogolon88/PROJET_IMAGE.git
+```
+
 Créer un environnement virtuel et installer les dépendances :
-bashpython -m venv venv
+
+```bash
+python -m venv venv
 source venv/bin/activate  # Windows : venv\Scripts\activate
 pip install -r requirements.txt
-🚀 Utilisation
-bashpython src/detection.py --image images/samples/piece.jpg
+```
+
+## 🚀 Utilisation
+
+```bash
+python main.py
+```
+
+## 🔍 Pipeline de traitement
+
+L'algorithme principal (`main.py`) traite chaque image selon les étapes suivantes :
 
 ```
-## 🔍 Fonctionnement
-
-1. **Prétraitement** — conversion en niveaux de gris, flou gaussien, seuillage.
-2. **Détection** — détection de contours circulaires via les algorithmes de Canny et la transformé de Hough
-3. **Extraction** — calcul du rayon, de la couleur moyenne et du ratio de forme
-4. **Classification** — comparaison aux caractéristiques de référence par valeur faciale
-
-# Objectif : un algo non supervisé pour compter le nombre de pieces dans l'image et pkus faire 
-preparation des données(images pour la verité terrain Labelme).
-
-# etapes pretraitement: Image brute
-
-reduction de bruit local
-Image en niveau de gris
-flu gaussian pour la reducction du bruit
+Image brute (RGB)
      ↓
-Gaussien
+Redimensionnement (max 800px)        # mise à l'échelle si nécessaire
      ↓
-     Otsu # pour le moment non utilisé
+Conversion BGR → HSV                 # extraction du canal V (luminosité)
      ↓
-Canny
+CLAHE                                # égalisation adaptative du contraste (clipLimit=2.5, tile 8×8)
      ↓
-Hough          → détecte les cercles (position + rayon)
+Flou gaussien (11×11, σ=2.5)         # réduction du bruit
      ↓
-Classification → identifie chaque pièce via le rayon
+Morphologie (OPEN + CLOSE)           # suppression du bruit résiduel et fermeture des contours
      ↓
-Comptage + Somme
-Base de validation et base de test
+Transformée de Hough (HoughCircles)  # détection des cercles (dp=1, param1=50, param2=60)
+     ↓
+NMS — Non-Maximum Suppression        # suppression des cercles redondants (overlap > 0.8)
+     ↓
+Comptage des pièces détectées
+     ↓
+Évaluation (régression)              # comparaison aux labels de vérité terrain
 ```
+
+### Détail des étapes
+
+1. **Redimensionnement** — les images dont le côté le plus grand dépasse 800 px sont redimensionnées proportionnellement afin d'uniformiser le traitement.
+2. **Espace colorimétrique HSV** — seul le canal V (valeur/luminosité) est utilisé, ce qui rend la détection robuste aux variations de couleur des pièces.
+3. **CLAHE** — l'égalisation adaptative du contraste améliore la lisibilité des bords sur les images surexposées ou sous-éclairées.
+4. **Flou gaussien** — atténue le bruit haute fréquence avant la détection de cercles.
+5. **Morphologie (OPEN + CLOSE)** — l'ouverture supprime les petits artefacts, la fermeture réunit les contours brisés.
+6. **Transformée de Hough** — détecte les cercles dans l'image prétraitée. Les rayons acceptés vont de 25 à 140 px, la distance minimale entre deux centres est de 30 px.
+7. **NMS (Non-Maximum Suppression)** — filtre les cercles en double en supprimant ceux dont le chevauchement dépasse 80 %.
+8. **Évaluation** — les prédictions sont comparées aux annotations de la base de validation via une métrique de régression.
 
 
 ##  Dépendances
