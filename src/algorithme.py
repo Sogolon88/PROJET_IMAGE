@@ -102,8 +102,8 @@ def hough_transform(image, dp=1, minDist=20, param1=150, param2=30, minRadius=20
 def est_couleur_piece(img_bgr, cx, cy, r, seuil_ratio=0.45):
     """
     Filtre couleur combinant deux approches :
-    1. Moyenne HSV : rejette les cercles trop sombres (clavier noir, fond sombre)
-    2. Ratio pixel : fraction minimale de pixels à couleur métallique
+    1. Moyenne HSV : rejette les cercles trop sombres ( fond sombre)
+    2. Ratio pixel : garde les pixels à couleur métallique
     Un cercle est validé si les deux conditions sont remplies.
     """
     masque = np.zeros(img_bgr.shape[:2], dtype=np.uint8)
@@ -118,7 +118,7 @@ def est_couleur_piece(img_bgr, cx, cy, r, seuil_ratio=0.45):
     s = pixels[:, 1].astype(float)
     v = pixels[:, 2].astype(float)
 
-    # ── Approche 1 : moyenne globale ──
+    # Approche 1 : moyenne globale
     # V moyen des pièces >= 62 même pour les plus sombres (1_cent)
     # Les touches noires du clavier ont V moyen < 50
     if v.mean() < 55:

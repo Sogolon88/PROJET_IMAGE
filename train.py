@@ -116,7 +116,7 @@ if __name__ == "__main__":
     # Grille de paramètres — Phase 3 : exploration des paramètres Hough
     # Paramètres fixés (optimisés phases 1 & 2) :
     #   kernel_size=11, sigma=2.5, poids_v=1.0, dp=1,
-    #   clip_limit=2.5, overlap_thresh=0.8
+    #   clip_limit=2.5, overlap_thresh=1.0
     # On explore param1, param2, minRadius, maxRadius, minDist
     param_grid = {
         "kernel_size":    [7, 9, 11],
@@ -124,7 +124,7 @@ if __name__ == "__main__":
         "poids_v":        [1.0],
         "dp":             [1, 1.2],
         "clip_limit":     [2, 2.5],
-        "overlap_thresh": [0.8],
+        "overlap_thresh": [1.0],
         "param1":         [40, 45, 50, 55, 60],
         "param2":         [50, 55, 60, 65, 70],
         "minRadius":      [20, 25, 30],
