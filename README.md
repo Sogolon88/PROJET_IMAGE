@@ -15,22 +15,28 @@ Ce projet permet de détecter, identifier et compter le nombre de pièces de mon
 ```
 projet_Image/
 ├── src/
-│   ├── algorithme.py      # Pipeline de traitement : HSV, CLAHE, Hough, NMS, filtres couleur
-│   ├── evaluation.py      # Métriques d'évaluation (régression)
-│   └── utiles.py          # Chargement des images et des labels
+│   ├── algorithme.py        # Pipeline de traitement : HSV, CLAHE, Hough, NMS, filtres couleur
+│   ├── classification.py    # Classification des pièces par couleur et ratio de taille
+│   ├── evaluation.py        # Métriques d'évaluation (TP, FP, FN, F1, MSE)
+│   └── utiles.py            # Chargement des images et des labels
 ├── data/
 │   ├── base_validation/
-│   │   ├── images/        # 150 images de validation (image1.png … image150.png)
-│   │   └── labels/        # Annotations JSON (vérité terrain)
+│   │   ├── images/          # 150 images de validation (image1.png … image150.png)
+│   │   └── labels/          # Annotations JSON (vérité terrain)
 │   ├── base_test/
-│   │   ├── images/        # 50 images de test (image151.png … image200.png)
-│   │   └── labels/        # Annotations JSON (vérité terrain)
-│   └── images/            # Images brutes diverses
-├── main.py                # Point d'entrée principal — exécute la pipeline sur base_validation
-├── train.py               # Script d'entraînement / calibration des paramètres
-├── interface.py           # Interface graphique de visualisation
-├── result.txt             # Résultats de la dernière exécution
-├── output.log             # Logs de sortie
+│   │   ├── images/          # 50 images de test (image151.png … image200.png)
+│   │   └── labels/          # Annotations JSON (vérité terrain)
+│   └── images/              # Images brutes diverses
+├── tests/
+│   ├── test_class.py        # Debug et évaluation de la classification (base validation)
+│   └── test_final.py        # Évaluation finale sur la base de test (à lancer une seule fois)
+├── main.py                  # Point d'entrée principal — pipeline de détection
+├── optimize.py              # Optimisation des paramètres avec Optuna
+├── train.py                 # Script d'entraînement
+├── interface.py             # Interface graphique de visualisation
+├── coinvision_optuna.db     # Base de données des essais Optuna
+├── output.log               # Logs de la dernière exécution
+├── result.txt               # Résultats de la dernière exécution
 └── README.md
 ```
 
@@ -93,6 +99,39 @@ Comptage des pièces détectées
 7. **NMS (Non-Maximum Suppression)** — filtre les cercles en double en supprimant ceux dont le chevauchement dépasse 80 %.
 8. **Évaluation** — les prédictions sont comparées aux annotations de la base de validation via une métrique de régression.
 
+
+## Optimisation des paramètres avec Optuna
+
+La pipeline de détection repose sur **11 paramètres** (taille du noyau gaussien, seuils de Hough, rayon min/max, seuil NMS...). Plutôt que de les régler à la main, on a utilisé **Optuna**, un framework d'optimisation bayésienne, pour trouver automatiquement la meilleure combinaison.
+
+Le principe : Optuna lance des centaines d'essais en faisant varier les paramètres, et pour chaque essai il calcule le MSE sur la base de validation. Il retient la combinaison qui minimise l'erreur. Après **10 383 essais**, le meilleur résultat a été obtenu au trial #10040 avec un MSE de 14.99.
+
+Les paramètres retenus sont fixés directement dans `main.py` :
+
+```python
+PARAMS = {
+    "kernel_size": 15, "sigma": 4.711, "clip_limit": 1.316,
+    "dp": 1, "param1": 32, "param2": 29,
+    "minRadius": 40, "maxRadius": 100, "minDist": 75,
+    "overlap_thresh": 0.986, "uniformite_kernel": 19,
+}
+```
+
+### Relancer l'optimisation
+
+Si on veut ré-optimiser (par exemple sur de nouvelles images), il suffit de lancer :
+
+```bash
+python optimize.py
+```
+
+Les résultats sont sauvegardés dans `coinvision_optuna.db` (base SQLite). On peut visualiser les essais avec le dashboard Optuna :
+
+```bash
+optuna-dashboard sqlite:///coinvision_optuna.db
+```
+
+> **Attention** : relancer l'optimisation prend plusieurs heures. Les paramètres actuels dans `main.py` sont déjà les meilleurs trouvés.
 
 ##  Dépendances
 opencv-python

@@ -46,7 +46,7 @@ LABELS_DIRS = [
 ]
 
 DEFAULT_IMAGES_DIR = os.path.join(
-    os.path.dirname(__file__), "data", "base_validation", "images"
+    os.path.dirname(__file__), "data", "base_test", "images"
 )
 
 
@@ -427,10 +427,15 @@ class App(ctk.CTk):
         folder = DEFAULT_IMAGES_DIR
         if not os.path.isdir(folder):
             return
+        def _tri_num(p):
+            base   = os.path.splitext(os.path.basename(p))[0]
+            digits = ''.join(filter(str.isdigit, base))
+            return int(digits) if digits else 0
+
         images = sorted([
             os.path.join(folder, f) for f in os.listdir(folder)
             if os.path.splitext(f)[1].lower() in IMG_EXTS
-        ])
+        ], key=_tri_num)
         if not images:
             return
         self.folder_images = images
@@ -442,10 +447,16 @@ class App(ctk.CTk):
         folder = filedialog.askdirectory(title="Choisir un dossier d'images")
         if not folder:
             return
+
+        def _tri_num(p):
+            base   = os.path.splitext(os.path.basename(p))[0]
+            digits = ''.join(filter(str.isdigit, base))
+            return int(digits) if digits else 0
+
         images = sorted([
             os.path.join(folder, f) for f in os.listdir(folder)
             if os.path.splitext(f)[1].lower() in IMG_EXTS
-        ])
+        ], key=_tri_num)
         if not images:
             self._set_status("Aucune image trouvée dans ce dossier", DANGER)
             return

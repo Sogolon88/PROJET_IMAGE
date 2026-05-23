@@ -1,26 +1,4 @@
-18:05:44 Pré-traitement des images...
-18:05:48 80 images pré-traitées.
-18:05:48 Nombre total de combinaisons : 32400
-18:05:48 Workers parallèles           : 11
-18:32:08 [1/32400] Nouveau meilleur -> F1=1.000, MSE=278.09, score=-26.809
-18:32:08   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 50, 'minRadius': 20, 'maxRadius': 130, 'minDist': 35}
-18:56:14 [11/32400] Nouveau meilleur -> F1=1.000, MSE=225.61, score=-21.561
-18:56:14   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 50, 'minRadius': 25, 'maxRadius': 130, 'minDist': 35}
-19:13:22 [15/32400] Nouveau meilleur -> F1=1.000, MSE=170.96, score=-16.096
-19:13:22   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 50, 'minRadius': 30, 'maxRadius': 130, 'minDist': 35}
-20:29:27 [43/32400] Nouveau meilleur -> F1=1.000, MSE=138.15, score=-12.815
-20:29:27   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 55, 'minRadius': 30, 'maxRadius': 130, 'minDist': 35}
-20:43:58   ... 50/32400 combinaisons traitées
-21:33:18 [70/32400] Nouveau meilleur -> F1=1.000, MSE=108.56, score=-9.856
-21:33:18   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 60, 'minRadius': 30, 'maxRadius': 130, 'minDist': 35}
-22:19:40 [97/32400] Nouveau meilleur -> F1=1.000, MSE=90.62, score=-8.062
-22:19:40   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 65, 'minRadius': 30, 'maxRadius': 130, 'minDist': 35}
-22:21:55   ... 100/32400 combinaisons traitées
-22:24:43 [101/32400] Nouveau meilleur -> F1=1.000, MSE=87.46, score=-7.746
-22:24:43   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 65, 'minRadius': 30, 'maxRadius': 140, 'minDist': 35}
-22:44:06 [123/32400] Nouveau meilleur -> F1=1.000, MSE=77.15, score=-6.715
-22:44:06   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 70, 'minRadius': 30, 'maxRadius': 130, 'minDist': 30}
-22:44:56 [124/32400] Nouveau meilleur -> F1=1.000, MSE=65.92, score=-5.593
-22:44:57   Params: {'kernel_size': 7, 'sigma': 1, 'poids_v': 1.0, 'dp': 1, 'clip_limit': 2, 'overlap_thresh': 0.8, 'param1': 40, 'param2': 70, 'minRadius': 30, 'maxRadius': 130, 'minDist': 35}
-23:43:41   ... 150/32400 combinaisons traitées
-01:02:22   ... 200/32400 combinaisons traitées
+19:06:24 Pré-traitement des images...
+19:06:54 80 images pré-traitées.
+19:06:54 Nombre total de combinaisons : 32400
+19:06:54 Workers parallèles           : 11
