@@ -42,11 +42,11 @@ IMG_EXTS = {".png", ".jpg", ".jpeg", ".bmp", ".tiff"}
 
 LABELS_DIRS = [
     os.path.join(os.path.dirname(__file__), "data", "base_validation", "labels"),
-    os.path.join(os.path.dirname(__file__), "data", "base_test", "labels"),
+    #os.path.join(os.path.dirname(__file__), "data", "base_test", "labels"),
 ]
 
 DEFAULT_IMAGES_DIR = os.path.join(
-    os.path.dirname(__file__), "data", "base_test", "images"
+    os.path.dirname(__file__), "data", "base_validation", "images"
 )
 
 

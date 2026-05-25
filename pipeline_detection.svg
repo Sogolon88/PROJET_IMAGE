@@ -1,0 +1,67 @@
+<svg viewBox="0 0 480 620" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Pipeline de détection des pièces euro</title>
+  <style>
+    text { font-family: monospace; fill: #1a1a1a; }
+    .t  { font-size: 11px; font-weight: bold; }
+    .s  { font-size: 9px; fill: #555; }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#777"/>
+    </marker>
+  </defs>
+
+  <rect x="115" y="10"  width="250" height="44" rx="7" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="240" y="28"  text-anchor="middle" class="t">Image brute (BGR)</text>
+  <text x="240" y="44"  text-anchor="middle" class="s">entrée du pipeline</text>
+  <line x1="240" y1="54"  x2="240" y2="74"  stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="74"  width="250" height="44" rx="7" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+  <text x="240" y="92"  text-anchor="middle" class="t">Redimensionnement</text>
+  <text x="240" y="108" text-anchor="middle" class="s">côté max → 1025 px (INTER_AREA)</text>
+  <line x1="240" y1="118" x2="240" y2="138" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="138" width="250" height="44" rx="7" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+  <text x="240" y="156" text-anchor="middle" class="t">BGR → HSV  (canal V)</text>
+  <text x="240" y="172" text-anchor="middle" class="s">luminosité robuste aux couleurs des pièces</text>
+  <line x1="240" y1="182" x2="240" y2="202" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="202" width="250" height="44" rx="7" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+  <text x="240" y="220" text-anchor="middle" class="t">CLAHE</text>
+  <text x="240" y="236" text-anchor="middle" class="s">égalisation adaptative du contraste local</text>
+  <line x1="240" y1="246" x2="240" y2="266" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="266" width="250" height="44" rx="7" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+  <text x="240" y="284" text-anchor="middle" class="t">Flou gaussien</text>
+  <text x="240" y="300" text-anchor="middle" class="s">noyau 15×15  σ=4.711  — réduit le bruit</text>
+  <line x1="240" y1="310" x2="240" y2="330" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="330" width="250" height="44" rx="7" fill="#f3f3f3" stroke="#999" stroke-width="1.3"/>
+  <text x="240" y="348" text-anchor="middle" class="t">Morphologie  (OPEN + CLOSE)</text>
+  <text x="240" y="364" text-anchor="middle" class="s">supprime artefacts, ferme les contours</text>
+  <line x1="240" y1="374" x2="240" y2="394" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="394" width="250" height="44" rx="7" fill="#fff8e1" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="240" y="412" text-anchor="middle" class="t">Transformée de Hough</text>
+  <text x="240" y="428" text-anchor="middle" class="s">HoughCircles  dp=1  param1=32  param2=29</text>
+  <line x1="240" y1="438" x2="240" y2="458" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="458" width="250" height="44" rx="7" fill="#fff8e1" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="240" y="476" text-anchor="middle" class="t">NMS</text>
+  <text x="240" y="492" text-anchor="middle" class="s">suppression des cercles redondants (overlap 0.986)</text>
+  <line x1="240" y1="502" x2="240" y2="522" stroke="#aaa" stroke-width="1.3" marker-end="url(#a)"/>
+
+  <rect x="115" y="522" width="250" height="44" rx="7" fill="#e8f4fd" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="240" y="540" text-anchor="middle" class="t">Cercles détectés</text>
+  <text x="240" y="556" text-anchor="middle" class="s">liste (cx, cy, r)  — comptage des pièces</text>
+
+  <rect x="10" y="394" width="95" height="44" rx="5" fill="#fffde7" stroke="#ddd" stroke-width="1"/>
+  <text x="57" y="411" text-anchor="middle" font-size="8" fill="#888">paramètres</text>
+  <text x="57" y="424" text-anchor="middle" font-size="8" fill="#888">optimisés par</text>
+  <text x="57" y="437" text-anchor="middle" font-size="8" fill="#888">Optuna (10 383</text>
+  <rect x="10" y="458" width="95" height="44" rx="5" fill="#fffde7" stroke="#ddd" stroke-width="1"/>
+  <text x="57" y="480" text-anchor="middle" font-size="8" fill="#888">essais, trial</text>
+  <text x="57" y="493" text-anchor="middle" font-size="8" fill="#888">#10040)</text>
+  <line x1="105" y1="416" x2="115" y2="416" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="105" y1="480" x2="115" y2="480" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>

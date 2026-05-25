@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnement virtuel
+venv/
+.env/
+
+# Optuna
+coinvision_optuna.db
+
+# Logs et resultats temporaires
+output.log
+result.txt
+
+# Editeurs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
